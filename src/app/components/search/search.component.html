@@ -1,0 +1,36 @@
+<div class="search_block">
+  <div class="white">
+    <h1>Reservar Hotel</h1>
+    <h3>Destino*:</h3>
+    <form id="search">
+      <div class="container_inputs">
+        <input
+          placeholder="Procure pelo lugar perfeito!"
+          name="search_input"
+          nz-input
+          [(ngModel)]="inputValue"
+          (ngModelChange)="onChange($event)"
+          [nzAutocomplete]="auto"
+        />
+        <nz-autocomplete
+          [nzDataSource]="filteredOptions"
+          #auto
+        ></nz-autocomplete>
+
+        <button
+          (click)="clearInput()"
+          nz-button
+          nzType="default"
+          nzShape="circle"
+        >
+          <span nz-icon nzType="close"></span>
+        </button>
+      </div>
+      <div class="block_button">
+        <button (click)="searchPlaces()" nz-button nzType="primary">
+          {{ botao }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

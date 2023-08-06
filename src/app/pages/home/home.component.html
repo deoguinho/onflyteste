@@ -1,0 +1,58 @@
+<div class="container">
+  <app-search (changePlace)="onChangePlace($event)"></app-search>
+  <div class="list">
+    <div class="margin_container" *ngIf="hoteis.length > 0; else noPlaces">
+      <div
+        class="listas"
+        nz-row
+        *ngFor="let hotel of hoteis | slice : 0 : count"
+      >
+        <div nz-col nzSpan="6" class="img_block">
+          <app-carousel [image]="hotel.images"></app-carousel>
+        </div>
+        <div nz-col nzSpan="12" class="description_container">
+          <h1>{{ hotel.name }}</h1>
+          <h3>{{ hotel.address.city }}, {{ hotel.address.state }}</h3>
+          <p>{{ hotel.description }}</p>
+          <div class="icons_container">
+            <label>{{ hotel.stars }}</label
+            ><span
+              *ngFor="let star of [0, 1, 2, 3, 4, 5]"
+              nz-icon
+              [nzType]="'star'"
+              [nzTheme]="'fill'"
+              [nzTwotoneColor]="'#eb2f96'"
+            ></span>
+            |
+            <span class="icons" nz-icon nzType="wifi" nzTheme="outline"></span>
+            <span
+              class="icons"
+              nz-icon
+              nzType="arrows-alt"
+              nzTheme="outline"
+            ></span>
+            <span class="icons" nz-icon nzType="login" nzTheme="outline"></span>
+            <span class="icons" nz-icon nzType="bulb" nzTheme="outline"></span>
+          </div>
+          <h4 class="reembolsavel">Reembolsável</h4>
+        </div>
+        <div nz-col nzSpan="4" class="price_container">
+          <p>Ápartir</p>
+          <h1>R$ 1.332,00</h1>
+          <p>R$44,00/noite</p>
+          <p>Impostos inclusos</p>
+          <app-drawer [hotelArray]="hotel"></app-drawer>
+        </div>
+      </div>
+    </div>
+    <ng-template #noPlaces>
+      <h1>Infelizmente estamos sem hotéis disponiveis para esse lugar!</h1>
+    </ng-template>
+    <div class="loadingMore" *ngIf="hoteis.length > 0">
+      <button (click)="loadMore()" nz-button nzType="primary">
+        <span nz-icon nzType="plus-circle" nzTheme="outline"></span> Loading
+        more
+      </button>
+    </div>
+  </div>
+</div>

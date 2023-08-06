@@ -1,0 +1,81 @@
+.container {
+  width: 100%;
+}
+
+.margin_container {
+  margin-left: 20em;
+  margin-right: 20em;
+}
+
+.listas {
+  background-color: #fff;
+  border-radius: 2em;
+  margin-bottom: 1em;
+}
+
+.img_block {
+  width: 100px;
+  height: 300px;
+}
+
+.description_container {
+  margin: 1em;
+}
+
+.description_container p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.description_container label {
+  margin-right: 0.4em;
+}
+.icons_container {
+  margin-top: 2em;
+}
+.icons label {
+  margin-right: 1em;
+}
+
+.reembolsavel {
+  margin-top: 1.2em;
+  background-color: rgb(48, 37, 37);
+  width: 36%;
+  text-align: center;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.price_container {
+  border-left: solid 3px #969692;
+}
+
+.price_container p {
+  margin: 2em;
+  color: #969692;
+  line-height: 0;
+}
+.price_container h1 {
+  margin: 1em;
+}
+
+.price_container [nz-button] {
+  margin: 2em;
+  width: 100%;
+  height: 36px;
+  border-radius: 2em;
+  font-size: 1.1em;
+}
+
+.loadingMore{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,47 @@
+<nz-space>
+  <button *nzSpaceItem nz-button nzType="primary" (click)="showLarge()">
+    Selecionar
+  </button>
+</nz-space>
+<nz-drawer
+  [nzSize]="size"
+  [nzVisible]="visible"
+  nzPlacement="right"
+  [nzTitle]="title"
+  [nzExtra]="extra"
+  (nzOnClose)="close()"
+>
+  <ng-container *nzDrawerContent>
+    <div>
+      <label>{{ hotelArray.stars }}</label
+      ><span
+        *ngFor="let star of [0, 1, 2, 3, 4, 5]"
+        nz-icon
+        [nzType]="'star'"
+        [nzTheme]="'fill'"
+        [nzTwotoneColor]="'#eb2f96'"
+      ></span>
+
+      <h1>{{ hotelArray.name }}</h1>
+      <h3>{{ hotelArray.address.city }}, {{ hotelArray.address.state }}</h3>
+      <div class="img_block">
+        <app-carousel [image]="hotelArray.images"></app-carousel>
+      </div>
+      <div>
+        <h1>Facilidades do hotel</h1>
+        <p *ngFor="let facilidades of hotelArray.amenities">
+          - {{ facilidades.key }}
+        </p>
+      </div>
+
+      <div>
+        <h2>Conheça um pouco mais</h2>
+        <p>{{ hotelArray.description }}</p>
+        <p></p>
+      </div>
+    </div>
+  </ng-container>
+</nz-drawer>
+<ng-template #extra>
+  <button nz-button nzType="primary" (click)="close()">Voltar</button>
+</ng-template>
